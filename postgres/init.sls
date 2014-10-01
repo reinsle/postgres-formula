@@ -12,17 +12,7 @@ postgresql:
     - name: {{ postgres.service }}
     - require:
       - pkg: {{ postgres.pkg }}
-
       
-postgresql-server-dev-9.3:
-  pkg.installed
-  
-libpq-dev:
-  pkg.installed
-
-python-dev:
-  pkg.installed
-
 {% if 'pg_hba.conf' in pillar.get('postgres', {}) %}
 pg_hba.conf:
   file.managed:
